@@ -1,4 +1,4 @@
-import { Card, Button, Typography, Select, Row, Col, Space } from "antd";
+import { Card, Button, Select, Row, Col, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
