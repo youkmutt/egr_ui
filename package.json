@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-api": "rimraf ./src/api && openapi-generator-cli generate -i http://localhost:44317/swagger/v1/swagger.json -g typescript-fetch -o ./src/api --skip-validate-spec --additional-properties=modelPropertyNaming=original,supportsES6=true,withInterfaces=true,modelSuffix=Dto,withoutRuntimeChecks=true,skipObjectModel=true"
   },
   "dependencies": {
     "antd": "^6.1.4",
@@ -26,6 +27,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "rimraf": "^6.1.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"

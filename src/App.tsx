@@ -3,8 +3,15 @@ import { ConfigProvider } from "antd";
 import HomePage from "./pages/HomePage";
 import GeneralPage from "./pages/general/GeneralPage";
 import PageLayout from "./layouts/PageLayout";
+import GlobalLoading from "./context/GlobalLoading";
+import { LoadingProvider, useLoading } from "./context/LoadingContext";
 
 function App() {
+  function LoadingGate() {
+    const { loading } = useLoading();
+    return <GlobalLoading loading={loading} />;
+  }
+
   return (
     <ConfigProvider
       theme={{
@@ -148,14 +155,17 @@ function App() {
         },
       }}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route element={<PageLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/general" element={<GeneralPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <LoadingProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<PageLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/general" element={<GeneralPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+        <LoadingGate />
+      </LoadingProvider>
     </ConfigProvider>
   );
 }

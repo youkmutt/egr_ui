@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+apis/CompanyApi.ts
+apis/SystemApi.ts
+apis/UserApi.ts
+apis/index.ts
+docs/CompanyApi.md
+docs/CompanyDto.md
+docs/CompanyDtoPagedResult.md
+docs/DropdownModel.md
+docs/PermissionMode.md
+docs/SystemApi.md
+docs/UserApi.md
+docs/UserDTO.md
+docs/UserDTOPagedResult.md
+index.ts
+models/index.ts
+runtime.ts
