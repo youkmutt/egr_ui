@@ -5,6 +5,9 @@ import GeneralPage from "./pages/general/GeneralPage";
 import PageLayout from "./layouts/PageLayout";
 import GlobalLoading from "./context/GlobalLoading";
 import { LoadingProvider, useLoading } from "./context/LoadingContext";
+import LoginPage from "./pages/login/LoginPage";
+import RequireAuth from "./routes/RequireAuth";
+import RedirectIfAuth from "./routes/RedirectIfAuth";
 
 function App() {
   function LoadingGate() {
@@ -158,7 +161,22 @@ function App() {
       <LoadingProvider>
         <BrowserRouter>
           <Routes>
-            <Route element={<PageLayout />}>
+            <Route
+              path="/login"
+              element={
+                <RedirectIfAuth>
+                  <LoginPage />
+                </RedirectIfAuth>
+              }
+            />
+
+            <Route
+              element={
+                <RequireAuth>
+                  <PageLayout />
+                </RequireAuth>
+              }
+            >
               <Route path="/" element={<HomePage />} />
               <Route path="/general" element={<GeneralPage />} />
             </Route>

@@ -119,6 +119,9 @@ export class UserApi extends runtime.BaseAPI implements UserApiInterface {
             headerParameters["X-API-KEY"] = await this.configuration.apiKey("X-API-KEY"); // ApiKey authentication
         }
 
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
 
         let urlPath = `/api/User/paging`;
 
@@ -150,6 +153,9 @@ export class UserApi extends runtime.BaseAPI implements UserApiInterface {
             headerParameters["X-API-KEY"] = await this.configuration.apiKey("X-API-KEY"); // ApiKey authentication
         }
 
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
 
         let urlPath = `/api/User/signin`;
 

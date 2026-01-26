@@ -29,6 +29,9 @@ async function example() {
   const config = new Configuration({ 
     // To configure API key authorization: ApiKey
     apiKey: "YOUR API KEY",
+    // To configure HTTP basic authorization: BasicAuth
+    username: "YOUR USERNAME",
+    password: "YOUR PASSWORD",
   });
   const api = new CompanyApi(config);
 
@@ -54,7 +57,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey)
+[ApiKey](../README.md#ApiKey), [BasicAuth](../README.md#BasicAuth)
 
 ### HTTP request headers
 
@@ -90,6 +93,9 @@ async function example() {
   const config = new Configuration({ 
     // To configure API key authorization: ApiKey
     apiKey: "YOUR API KEY",
+    // To configure HTTP basic authorization: BasicAuth
+    username: "YOUR USERNAME",
+    password: "YOUR PASSWORD",
   });
   const api = new CompanyApi(config);
 
@@ -141,7 +147,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey)
+[ApiKey](../README.md#ApiKey), [BasicAuth](../README.md#BasicAuth)
 
 ### HTTP request headers
 
