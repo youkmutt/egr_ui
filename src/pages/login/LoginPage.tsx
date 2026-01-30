@@ -7,7 +7,7 @@ export default function LoginPage() {
   const { showLoading, hideLoading } = useLoading();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/general";
+  const from = location.state?.from?.pathname || "/";
 
   const onFinish = async (values: any) => {
     console.log("login:", values);
